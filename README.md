@@ -53,7 +53,7 @@
 
 ## 结构与角色
 
-![工作台结构示意](docs/assets/architecture.png)
+![工作台结构示意](dshworkstation/architecture.png)
 
 图（原图整理自手绘稿）表达的是这几层关系：
 
@@ -91,18 +91,17 @@
 ```
 .
 ├── README.md
-└── docs/
-    ├── deploy-guide.md          # 从零搭建工作台（原「搭建工作台教程」）
-    ├── onboarding-template.md   # 接入一台新实例（原「接入实例模板」）
-    └── assets/
-        └── architecture.png     # 结构图（README 引用）
+└── dshworkstation\
+    ├── architecture.png
+    ├── deploy-guide.md
+    └── onboarding-template.md
 ```
 
 ---
 
 ## 快速开始 / 部署步骤要点
 
-完整步骤与全部代码见[搭建工作台教程](docs/deploy-guide.md)，这里是主干：
+完整步骤与全部代码见[搭建工作台教程](dshworkstation/deploy-guide.md)，这里是主干：
 
 **准备**：一个域名（`.top`/`.icu` 首年几块，`.com` 约 ¥75/年）、一个免费 Cloudflare 账号、一台能跑 `cloudflared` 的机器。
 
@@ -128,7 +127,7 @@
 
 ## 接入新实例 / 新 Agent
 
-完整步骤见[接入实例模板](docs/onboarding-template.md)，流程是「**先填值，再交给实例 Agent**」：
+完整步骤见[接入实例模板](dshworkstation/onboarding-template.md)，流程是「**先填值，再交给实例 Agent**」：
 
 1. 按模板开头的占位符替换表，把 4 个占位符全部换成真实值：
    `YOUR_DOMAIN`（如 `mydsh.top`，不带 www / https）、`YOUR_SECRET`、`YOUR_CERT_PEM`（含 BEGIN/END 行的完整内容）、`__NODE_NAME__`（如 `node2`，唯一即可）。
@@ -173,8 +172,8 @@
 
 | 文档 | 给谁看 | 内容 |
 |---|---|---|
-| [搭建工作台教程](docs/deploy-guide.md) | **人** | 从零搭工作台：租域名 → 接入 Cloudflare → 部署 Worker → 绑定 KV 与自定义域名 → 生成 `cert.pem` → 坑位清单 |
-| [接入实例模板](docs/onboarding-template.md) | **实例里的 Agent** | 占位符替换表 + 第 1–8 步接入流程 + 验证命令 + 坑位清单 |
+| [搭建工作台教程](dshworkstation/deploy-guide.md) | **人** | 从零搭工作台：租域名 → 接入 Cloudflare → 部署 Worker → 绑定 KV 与自定义域名 → 生成 `cert.pem` → 坑位清单 |
+| [接入实例模板](dshworkstation/onboarding-template.md) | **实例里的 Agent** | 占位符替换表 + 第 1–8 步接入流程 + 验证命令 + 坑位清单 |
 
 使用顺序：先按搭建教程搭好工作台、拿到域名/密语/证书三样真实值，再把它们填进接入模板，最后把填好的模板交给实例 Agent。
 
